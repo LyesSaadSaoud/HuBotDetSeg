@@ -167,19 +167,29 @@ Image.fromarray(mask * 255).save("data/output/mask.png")
 
 ---
 
-## Repository Structure
 
-/static/ # Contains media assets such as images and videos /images/ # Images used in the dataset and visualizations /videos/ # Videos showcasing HuBot's performance index.html # Main webpage for the project README.md # This file
-
-
----
 
 ## Citation
 
 If you use HuBot or its dataset, please cite our work:
 
-Lyes Saad Saoud, Loïc Lesobre, Enrico Sorato, Saud Al Qaydi, Yves Hingrat, Lakmal Seneviratne, Irfan Hussain. "HuBot: A Biomimicking Mobile Robot for Non-Disruptive Bird Behavior Study and Ecological Conservation."
-
+@article{HuBotPaper,
+  author = {Saad Saoud, Lyes and et al.},
+  title = {HuBot: A Biomimicking Mobile Robot for Non-Disruptive Bird Behavior Studyy},
+  year = {2024},
+  publisher = {Ecological Informatics},
+  doi = {......},
+  url = {https://doi.org/.....}}
+        
+  @misc{HuBotDataset,
+  author = {Saad Saoud, Lyes and et al.},
+  title = {HuBot Dataset: Annotated Data for Non-Disruptive Bird Behavior Study},
+  year = {2024},
+  publisher = {Mendeley Data},
+  version = {V1},
+  doi = {10.17632/tx3vrvsrgv.1},
+  url = {https://doi.org/10.17632/tx3vrvsrgv.1}}
+  
 
 ---
 
