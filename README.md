@@ -4,6 +4,25 @@ Welcome to the official repository for **HuBot**, a biomimetic mobile robot desi
 
 ---
 
+#### **Figure 1**: Interaction Between HuBot and a Male Captive Houbara Bird
+- **Description:** 
+  - (a) External view
+  - (b) View from the embedded robot camera.
+
+![Interaction between HuBot and a Houbara bird](images/img1.png)
+
+#### **Figure 2**: HuBot DL Performance in Real-World Houbara Observations
+- **Description:** Each column displays:
+  - (a) Input image
+  - (b) Houbara detection showing the bounding box around the detected Houbara
+  - (c) Houbara segmentation: mask highlighting the detected Houbara region
+  - (d) Local Houbara depth estimation
+  - (e) Masked local Houbara depth estimation
+  - (f) Houbara visual localization within the image frame.
+
+![HuBot DL performance](images/img2.png)
+
+---
 ## Overview
 
 The **Houbara bustard** is a critically endangered bird species that poses challenges for traditional research due to its elusive nature and sensitivity to human disturbances. To overcome these limitations, we introduce **HuBot**, a biomimetic robot designed to seamlessly integrate into the Houbara's natural habitat. Leveraging cutting-edge object detection algorithms and robust hardware, HuBot enables unprecedented insights into the Houbara's movement patterns, social interactions, and habitat use.
@@ -134,25 +153,7 @@ Image.fromarray(mask * 255).save("data/output/mask.png")
 - **Live Trials:** Successfully interacted with Houbara bustards in controlled and natural environments.
 
 ---
-### **Visual Results**
 
-#### **Figure 1**: Interaction Between HuBot and a Male Captive Houbara Bird
-- **Description:** 
-  - (a) External view
-  - (b) View from the embedded robot camera.
-
-![Interaction between HuBot and a Houbara bird](images/img1.jpg)
-
-#### **Figure 2**: HuBot DL Performance in Real-World Houbara Observations
-- **Description:** Each column displays:
-  - (a) Input image
-  - (b) Houbara detection showing the bounding box around the detected Houbara
-  - (c) Houbara segmentation: mask highlighting the detected Houbara region
-  - (d) Local Houbara depth estimation
-  - (e) Masked local Houbara depth estimation
-  - (f) Houbara visual localization within the image frame.
-
-![HuBot DL performance](images/img2.jpg)
 
 ## Future Work
 
