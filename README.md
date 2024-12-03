@@ -1,6 +1,6 @@
 # HuBot: A Biomimicking Mobile Robot for Non-Disruptive Bird Behavior Study
 
-Welcome to the official repository for **HuBot**, a biomimetic mobile robot designed for non-invasive wildlife monitoring and ecological research. This repository hosts the dataset, methodologies, and results associated with the HuBot project.
+Welcome to the official repository for **HuBot**, a biomimetic mobile robot designed for non-invasive wildlife monitoring and ecological research. This repository hosts the dataset, methodologies, results, and code associated with the HuBot project.
 
 ---
 
@@ -12,21 +12,82 @@ The **Houbara bustard** is a critically endangered bird species that poses chall
 
 ## Dataset
 
-### **Key Details:**
+### **Key Details**
 - **Size:** 5,000 images annotated for object detection.
 - **Sources:** In-house footage, online repositories, and globally deployed camera traps.
 - **Dataset Split:**
-  - Training: 4,000 images.
-  - Validation: 500 images.
-  - Testing: 500 images.
+  - Training: 4,000 images
+  - Validation: 500 images
+  - Testing: 500 images
 - **Annotations:** Bounding boxes localizing Houbara bustards in various environments.
 
-### **Features:**
+### **Features**
 - **Bias Mitigation:** Diverse lighting, backgrounds, and challenging scenarios.
 - **Data Augmentation:** Horizontal flips, cropping, blurring, and noise addition.
 - **Future Expansion:** Scaling to 50,000 images covering rare behaviors and subspecies.
 
 The dataset supports the training and evaluation of object detection algorithms for non-invasive ecological monitoring.
+
+---
+
+## Experimental Setup and Methodology
+
+### **Hardware**
+- **Platform:** NVIDIA Jetson AGX Xavier
+- **Specifications:**
+  - NVIDIA Volta™ GPU with 10 TeraFLOPS
+  - 48 GB LPDDR4 memory
+- **Environment:** Ubuntu 18.04 LTS, PyTorch 2.2.1 with CUDA 11.8, OpenCV-Python
+
+### **Software Pipeline**
+- **Data Management:** Real-time wireless transmission, preprocessing, and storage on a secure local server.
+- **Algorithms:**
+  - Object Detection: YOLOv9 for precise localization
+  - Real-Time Performance: Optimized for embedded applications
+- **Testing Environment:**
+  - Locations: Desert landscapes, coastal regions, and semi-urban environments.
+  - Climate: Extreme temperatures (10°C to 45°C) and high humidity (up to 95%).
+
+---
+
+## Key Features and Contributions
+
+1. **Biomimetic Design:** Life-like appearance and movement minimize disturbance to wildlife.
+2. **Advanced Algorithms:**
+   - Real-time detection with YOLOv9.
+   - Enhanced environmental analysis with deep learning models.
+3. **Environmental Resilience:**
+   - Thermal insulation for extreme temperatures.
+   - Moisture-resistant materials for high humidity and precipitation.
+4. **Non-Invasive Observation:** Demonstrated ability to approach Houbara bustards without altering their behavior.
+
+---
+
+## Code Examples
+
+### **Object Detection**
+```python
+from torchvision.models.detection import fasterrcnn_resnet50_fpn
+import torchvision.transforms as T
+from PIL import Image
+
+# Load the model
+model = fasterrcnn_resnet50_fpn(pretrained=True)
+model.eval()
+
+# Load and preprocess the image
+image = Image.open("data/input/example.jpg").convert("RGB")
+transform = T.Compose([T.ToTensor()])
+input_tensor = transform(image).unsqueeze(0)
+
+# Perform detection
+with torch.no_grad():
+    outputs = model(input_tensor)
+
+# Print detections
+for box, score in zip(outputs[0]['boxes'], outputs[0]['scores']):
+    if score > 0.8:  # Threshold
+        print(f"Box: {box.numpy()}, Score: {score.numpy()}")
 
 ---
 
