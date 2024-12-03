@@ -88,9 +88,31 @@ with torch.no_grad():
 for box, score in zip(outputs[0]['boxes'], outputs[0]['scores']):
     if score > 0.8:  # Threshold
         print(f"Box: {box.numpy()}, Score: {score.numpy()}")
+```
 
----
+### **Semantic Segmentation**
+```python
+from torchvision.models.segmentation import deeplabv3_resnet50
+import torchvision.transforms.functional as F
+from PIL import Image
 
+# Load the model
+model = deeplabv3_resnet50(pretrained=True)
+model.eval()
+
+# Load the image
+image = Image.open("data/input/example.jpg").convert("RGB")
+input_tensor = F.to_tensor(image).unsqueeze(0)
+
+# Perform segmentation
+with torch.no_grad():
+    output = model(input_tensor)["out"][0]
+    mask = output.argmax(0).byte().cpu().numpy()
+
+# Save the segmentation mask
+Image.fromarray(mask * 255).save("data/output/mask.png")
+
+```
 ## Experimental Setup and Methodology
 
 ### **Hardware**
