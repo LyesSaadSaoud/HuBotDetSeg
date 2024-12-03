@@ -113,37 +113,7 @@ with torch.no_grad():
 Image.fromarray(mask * 255).save("data/output/mask.png")
 
 ```
-## Experimental Setup and Methodology
 
-### **Hardware**
-- **Platform:** NVIDIA Jetson AGX Xavier
-- **Specifications:**
-  - NVIDIA Volta™ GPU with 10 TeraFLOPS
-  - 48 GB LPDDR4 memory
-- **Environment:** Ubuntu 18.04 LTS, PyTorch 2.2.1 with CUDA 11.8, OpenCV-Python
-
-### **Software Pipeline**
-- **Data Management:** Real-time wireless transmission, preprocessing, and storage on a secure local server.
-- **Algorithms:**
-  - Object Detection: YOLOv9 for precise localization.
-  - Real-Time Performance: Optimized for embedded applications.
-- **Testing Environment:**
-  - Locations: Desert landscapes, coastal regions, and semi-urban environments.
-  - Climate: Extreme temperatures (10°C to 45°C) and high humidity (up to 95%).
-
----
-
-## Key Features and Contributions
-
-1. **Biomimetic Design:** Life-like appearance and movement minimize disturbance to wildlife.
-2. **Advanced Algorithms:**
-   - Real-time detection with YOLOv9.
-   - Enhanced environmental analysis with deep learning models.
-3. **Environmental Resilience:**
-   - Thermal insulation for extreme temperatures.
-   - Moisture-resistant materials for high humidity and precipitation.
-4. **Non-Invasive Observation:**
-   - Demonstrated ability to approach Houbara bustards without altering their behavior.
 
 ---
 
@@ -164,6 +134,25 @@ Image.fromarray(mask * 255).save("data/output/mask.png")
 - **Live Trials:** Successfully interacted with Houbara bustards in controlled and natural environments.
 
 ---
+### **Visual Results**
+
+#### **Figure 1**: Interaction Between HuBot and a Male Captive Houbara Bird
+- **Description:** 
+  - (a) External view
+  - (b) View from the embedded robot camera.
+
+![Interaction between HuBot and a Houbara bird](images/img1.jpg)
+
+#### **Figure 2**: HuBot DL Performance in Real-World Houbara Observations
+- **Description:** Each column displays:
+  - (a) Input image
+  - (b) Houbara detection showing the bounding box around the detected Houbara
+  - (c) Houbara segmentation: mask highlighting the detected Houbara region
+  - (d) Local Houbara depth estimation
+  - (e) Masked local Houbara depth estimation
+  - (f) Houbara visual localization within the image frame.
+
+![HuBot DL performance](images/img2.jpg)
 
 ## Future Work
 
